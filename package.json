@@ -4,6 +4,7 @@
 	"displayName": "JavaScript Interactive",
 	"description": "Interactive javascript console and playground",
 	"version": "1.0.0",
+	"repository": "https://github.com/MohammadMD1383/js-interactive/",
 	"engines": {
 		"vscode": "^1.30.0"
 	},

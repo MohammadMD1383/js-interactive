@@ -1,0 +1,82 @@
+@use "vars";
+@use "util";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--vscode-editor-font-family);
+}
+
+body {
+	padding: vars.$body-padding !important;
+	font-size: var(--vscode-editor-font-size);
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	border-radius: vars.$row-border-radius;
+	margin-bottom: vars.$row-gutter;
+
+	&.execution {
+		border-left: vars.$row-border-radius solid vars.$active-row-color;
+	}
+
+	&.error {
+		--badge-color: #{vars.$error-color};
+		border-left: vars.$row-border-radius solid var(--badge-color);
+		background-color: rgba(vars.$error-color, 20%);
+	}
+
+	&.warning {
+		--badge-color: #{vars.$warning-color};
+		border-left: vars.$row-border-radius solid var(--badge-color);
+		background-color: rgba(vars.$warning-color, 20%);
+	}
+
+	&.error,
+	&.warning {
+		& > .indicator > span {
+			--width: calc(var(--vscode-editor-font-size) + #{vars.$indicator-padding});
+			display: inline-block;
+			width: var(--width);
+			line-height: var(--width);
+			border-radius: 1000px;
+			text-align: center;
+			background: var(--badge-color);
+		}
+	}
+
+	& > .indicator {
+		padding: vars.$indicator-padding;
+		margin-right: vars.$row-border-radius;
+		user-select: none;
+	}
+
+	& > .script {
+		flex-grow: 1;
+		white-space: pre-wrap;
+		overflow-x: auto;
+	}
+}
+
+.execution {
+	& > .script {
+		padding: vars.$indicator-padding;
+		box-shadow: 0 0 0 0 vars.$focused-input-color;
+		border-radius: vars.$row-border-radius;
+		background-color: transparent;
+
+		@include util.transition((box-shadow, background-color));
+
+		&[contenteditable="true"]:not(:focus) {
+			background-color: var(--vscode-editor-selectionBackground);
+		}
+
+		&[contenteditable="true"]:focus {
+			outline: 0;
+			box-shadow: 0 0 0 vars.$focus-highlight-width vars.$focused-input-color;
+		}
+	}
+}

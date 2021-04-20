@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"module": "ES6",
+		"target": "ES6",
+		"outDir": "../",
+		"sourceMap": true,
+		"removeComments": true,
+		"strict": true,
+		"alwaysStrict": false,
+		"noImplicitUseStrict": true
+	},
+	"exclude": ["node_modules"]
+}

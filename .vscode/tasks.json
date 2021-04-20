@@ -1,0 +1,84 @@
+// See https://go.microsoft.com/fwlink/?LinkId=733558
+// for the documentation about the tasks.json format
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "watch",
+			"problemMatcher": [],
+			"isBackground": true,
+			"presentation": {
+				"reveal": "never"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"group": "build",
+			"label": "res ts watch",
+			"problemMatcher": [],
+			"isBackground": true,
+			"presentation": {
+				"reveal": "never"
+			},
+			"command": "tsc -watch -p ./res/js/ts/"
+		},
+		{
+			"type": "shell",
+			"group": "build",
+			"label": "res sass watch",
+			"problemMatcher": [],
+			"isBackground": true,
+			"presentation": {
+				"reveal": "never"
+			},
+			"command": "sass --watch ./res/css/scss:./res/css --style compressed"
+		},
+		{
+			"label": "watch all",
+			"problemMatcher": [],
+			"dependsOn": ["npm: watch", "res ts watch", "res sass watch"]
+		},
+		{
+			"type": "npm",
+			"group": "build",
+			"script": "compile",
+			"problemMatcher": [],
+			"isBackground": true,
+			"presentation": {
+				"reveal": "never"
+			}
+		},
+		{
+			"type": "shell",
+			"group": "build",
+			"label": "res ts compile",
+			"problemMatcher": [],
+			"isBackground": true,
+			"presentation": {
+				"reveal": "never"
+			},
+			"command": "tsc -p ./res/js/ts/"
+		},
+		{
+			"type": "shell",
+			"group": "build",
+			"label": "res sass compile",
+			"problemMatcher": [],
+			"isBackground": true,
+			"presentation": {
+				"reveal": "never"
+			},
+			"command": "sass ./res/css/scss:./res/css --style compressed"
+		},
+		{
+			"label": "compile all",
+			"problemMatcher": [],
+			"dependsOn": ["npm: compile", "res ts compile", "res sass compile"]
+		}
+	]
+}

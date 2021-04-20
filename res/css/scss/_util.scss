@@ -1,0 +1,9 @@
+@mixin transition($props, $time: 0.2s) {
+	$str: "";
+	@each $prop in $props {
+		$str: "#{$str}, #{$prop} ease-in-out #{$time}";
+	}
+	$str: str-slice(unquote($str), 2, -1);
+
+	transition: $str;
+}

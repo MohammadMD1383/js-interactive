@@ -1,9 +1,11 @@
 # Change Log
 
-All notable changes to the "js-interactive" extension will be documented in this file.
+## [1.0.0]
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+-   basic javascript console features
+-   console methods
+    -   `console.log`
+    -   `console.warn`
+    -   `console.clear`
+-   experimental method implementation
+    -   `window.alert`

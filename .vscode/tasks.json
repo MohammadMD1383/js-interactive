@@ -79,6 +79,17 @@
 			"label": "compile all",
 			"problemMatcher": [],
 			"dependsOn": ["npm: compile", "res ts compile", "res sass compile"]
+		},
+		{
+			"type": "shell",
+			"group": "build",
+			"label": "export extension",
+			"problemMatcher": [],
+			"isBackground": false,
+			"presentation": {
+				"reveal": "always"
+			},
+			"command": "vsce package"
 		}
 	]
 }

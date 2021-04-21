@@ -2,11 +2,16 @@
 
 ## Table Of Contents
 
-### basic features:
+-   [Basic Features](#basic-features)
+-   [Playground Example](#playground-example)
+-   [Notice](#notice)
+-   [Known Issues](#known-issues)
+
+### Basic Features
 
 -   type and execute almost any js that you can execute in a browser. _dev tools > console_
 
-### Playground Example:
+### Playground Example
 
 ```javascript
 // console features
@@ -25,10 +30,10 @@
 // and many more ...
 ```
 
-### Notice:
+### Notice
 
 -   defining variables using `let` and `const` is not supported
 
-### Known Issues:
+### Known Issues
 
 -   nothing yet!

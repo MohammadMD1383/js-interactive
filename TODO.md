@@ -2,5 +2,6 @@
 
 - [ ] implement all console functions
 - [ ] implement UI functions such as alert, ...
-- [ ] escape html in output
+- [ ] <del>escape html in output</del>
 - [ ] add tab insertion support
+- [ ] make alert function wait until modal close - *no idea yet*

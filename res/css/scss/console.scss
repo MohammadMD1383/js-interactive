@@ -23,10 +23,10 @@ body {
 		border-left: vars.$row-border-radius solid vars.$active-row-color;
 	}
 
-	&.error {
-		--badge-color: #{vars.$error-color};
+	&.info {
+		--badge-color: #{vars.$info-color};
 		border-left: vars.$row-border-radius solid var(--badge-color);
-		background-color: rgba(vars.$error-color, 20%);
+		background-color: rgba(vars.$info-color, 20%);
 	}
 
 	&.warning {
@@ -35,8 +35,15 @@ body {
 		background-color: rgba(vars.$warning-color, 20%);
 	}
 
-	&.error,
-	&.warning {
+	&.error {
+		--badge-color: #{vars.$error-color};
+		border-left: vars.$row-border-radius solid var(--badge-color);
+		background-color: rgba(vars.$error-color, 20%);
+	}
+
+	&.info,
+	&.warning,
+	&.error {
 		& > .indicator > span {
 			--width: calc(var(--vscode-editor-font-size) + #{vars.$indicator-padding});
 			display: inline-block;
@@ -77,6 +84,56 @@ body {
 		&[contenteditable="true"]:focus {
 			outline: 0;
 			box-shadow: 0 0 0 vars.$focus-highlight-width vars.$focused-input-color;
+		}
+	}
+}
+
+.modal {
+	position: fixed;
+	top: vars.$modal-top-margin;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: vars.$modal-padding;
+	width: min(#{vars.$modal-width}, 100%);
+	max-height: min(#{vars.$modal-max-height}, 100%);
+	box-shadow: vars.$modal-shadow;
+	background: var(--vscode-editor-background);
+	font-family: var(--vscode-font-family) !important;
+	font-size: var(--vscode-font-size) !important;
+	border-radius: vars.$modal-border-radius;
+
+	& * {
+		font-family: var(--vscode-font-family) !important;
+		font-size: var(--vscode-font-size) !important;
+	}
+
+	& > p {
+		margin-bottom: vars.$modal-text-margin;
+		word-break: break-word;
+		overflow-y: auto;
+	}
+
+	& > .button-container {
+		display: flex;
+		align-items: center;
+	}
+
+	&-button {
+		border: none;
+		padding: vars.$modal-button-padding;
+		border-radius: vars.$row-border-radius;
+		background-color: var(--button-color);
+		cursor: pointer;
+		filter: brightness(1);
+
+		@include util.transition((filter));
+
+		&:hover {
+			filter: brightness(vars.$modal-button-hover-brightness);
+		}
+
+		&:focus {
+			outline: none;
 		}
 	}
 }

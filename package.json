@@ -10,8 +10,7 @@
 		"vscode": "^1.30.0"
 	},
 	"categories": [
-		"Other",
-		"Testing"
+		"Other"
 	],
 	"activationEvents": [
 		"onCommand:js-interactive.startSession"

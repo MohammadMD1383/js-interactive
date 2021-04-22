@@ -1,8 +1,9 @@
 {
-	"publisher": "MMD",
+	"publisher": "MohammadMD",
 	"name": "js-interactive",
 	"displayName": "JavaScript Interactive",
-	"description": "Interactive javascript console and playground",
+	"icon": "res/icon/Logo128.png",
+	"description": "Interactive javascript console and playground for vscode",
 	"version": "1.0.0",
 	"repository": "https://github.com/MohammadMD1383/js-interactive/",
 	"engines": {
@@ -24,6 +25,10 @@
 				"title": "Start new javascript interactive session"
 			}
 		]
+	},
+	"homepage": "https://github.com/MohammadMD1383/js-interactive/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/MohammadMD1383/js-interactive/issues"
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

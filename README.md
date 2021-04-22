@@ -1,11 +1,16 @@
 # A javascript console simulator for vscode
 
 ## Table Of Contents
-
+-   [Start](#start)
 -   [Basic Features](#basic-features)
 -   [Playground Example](#playground-example)
 -   [Notice](#notice)
 -   [Known Issues](#known-issues)
+
+### Start
+
+Press `F1` and then simply type `js interactive` to find the command as shown below.
+![image](https://user-images.githubusercontent.com/69088224/115705139-6e34e100-a381-11eb-9bb9-b88d2b5cf488.png)
 
 ### Basic Features
 

@@ -2,7 +2,7 @@
 {
 	"files.exclude": {
 		"out": false, // set this to true to hide the "out" folder with the compiled JS files
-		"js-interactive-*.vsix": true,
+		"release": true,
 		"res/**/*.css": true,
 		"res/**/*.js": true,
 		"res/**/*.map": true,

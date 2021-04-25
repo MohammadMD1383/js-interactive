@@ -1,7 +1,7 @@
-node_modules
-out
-js-interactive-*.vsix
-res/css/*.css
-res/css/*.map
-res/js/*.js
-res/js/*.map
+/node_modules
+/out
+/release
+/res/css/*.css
+/res/css/*.map
+/res/js/*.js
+/res/js/*.map

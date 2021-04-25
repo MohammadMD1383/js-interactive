@@ -1,28 +1,73 @@
 setListener();
 
-var CONSOLE = Object.freeze({
+var CONSOLE = {
+	generateString(...data: any[]): string {
+		let message: string = "";
+		for (let x of data) message += ` ${x}`;
+		return message;
+	},
+
 	log(...data: any[]) {
-		for (let x of data) {
-			const row = new Row({ indicator: indicators.info, text: x, hasInfo: true });
-			main.appendChild(row.element);
-		}
+		const row = new Row({ indicator: indicators.info, text: CONSOLE.generateString(...data), hasInfo: true });
+		main.appendChild(row.element);
 	},
 
 	warn(...data: any[]) {
-		for (let x of data) {
-			const row = new Row({ indicator: indicators.info, text: x, hasWarning: true });
-			main.appendChild(row.element);
-		}
+		const row = new Row({ indicator: indicators.info, text: CONSOLE.generateString(...data), hasWarning: true });
+		main.appendChild(row.element);
+	},
+
+	error(...data: any[]) {
+		const row = new Row({ indicator: indicators.info, text: CONSOLE.generateString(...data), hasError: true });
+		main.appendChild(row.element);
 	},
 
 	clear() {
 		main.innerHTML = "";
 	},
-});
+
+	table(...data: Object[]) {},
+
+	counter: { default: 0 } as any,
+	count(lable: string = "default") {
+		if (!CONSOLE.counter.hasOwnProperty(lable)) CONSOLE.counter[lable] = 0;
+		CONSOLE.log(`${lable}: ${++CONSOLE.counter[lable]}`);
+	},
+
+	countReset() {
+		CONSOLE.counter = { default: 0 };
+	},
+
+	timer: {} as any,
+	time(lable: string = "default") {
+		if (CONSOLE.timer.hasOwnProperty(lable)) {
+			CONSOLE.warn(`timer '${lable}' already exist`);
+			return;
+		}
+
+		CONSOLE.timer[lable] = performance.now();
+	},
+
+	timeEnd(lable: string = "default") {
+		if (!CONSOLE.timer.hasOwnProperty(lable)) {
+			CONSOLE.warn(`timer '${lable}' doesn't exist`);
+			return;
+		}
+
+		CONSOLE.log(`${lable}: ${performance.now() - CONSOLE.timer[lable]} ms`);
+		delete CONSOLE.timer[lable];
+	},
+};
 
 console.log = CONSOLE.log;
+console.info = CONSOLE.log;
 console.warn = CONSOLE.warn;
+console.error = CONSOLE.error;
 console.clear = CONSOLE.clear;
+console.count = CONSOLE.count;
+console.countReset = CONSOLE.countReset;
+console.time = CONSOLE.time;
+console.timeEnd = CONSOLE.timeEnd;
 
 var WINDOW = Object.freeze({
 	alert(message?: any) {

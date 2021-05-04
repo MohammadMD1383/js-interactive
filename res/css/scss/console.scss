@@ -137,3 +137,24 @@ body {
 		}
 	}
 }
+
+.table {
+	width: 100%;
+	padding: 10px;
+	border-collapse: collapse;
+	text-align: center;
+
+	& thead {
+		font-weight: bold;
+		background-color: rgba(vars.$info-color, 50%);
+	}
+
+	& tr:nth-child(2n) {
+		background-color: var(--vscode-editor-selectionBackground);
+	}
+
+	& td {
+		padding: 5px;
+		border: 1px solid vars.$active-row-color;
+	}
+}

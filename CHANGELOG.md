@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.0.4]
+
+-   added support for <kbd>TAB</kbd> key in editor
+-   console methods added
+    -   `console.table`
+
+---
+
 ## [1.0.2]
 
 -   minor fixes

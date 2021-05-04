@@ -4,7 +4,7 @@
 	"displayName": "JavaScript Interactive",
 	"icon": "res/icon/Logo128.png",
 	"description": "Interactive javascript console and playground for vscode",
-	"version": "1.0.2",
+	"version": "1.0.4",
 	"repository": "https://github.com/MohammadMD1383/js-interactive/",
 	"engines": {
 		"vscode": "^1.30.0"

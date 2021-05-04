@@ -26,7 +26,49 @@ var CONSOLE = {
 		main.innerHTML = "";
 	},
 
-	table(...data: Object[]) {},
+	table(...data: any[]) {
+		const table = document.createElement("table");
+		const thead = document.createElement("thead");
+		const tbody = document.createElement("tbody");
+
+		table.classList.add("table");
+		table.append(thead, tbody);
+
+		const model: any = {};
+		const models: Array<any> = [];
+
+		for (let o of data) {
+			for (let k of Object.keys(o)) {
+				model[k] = "";
+			}
+		}
+
+		for (let o of data) {
+			const tempModel: any = Object.assign({}, model);
+			for (let k of Object.keys(o)) {
+				tempModel[k] = o[k];
+			}
+			models.push(tempModel);
+		}
+
+		for (let k of Object.keys(model)) {
+			const td = document.createElement("td");
+			td.textContent = k;
+			thead.append(td);
+		}
+
+		for (let o of models) {
+			const tbodyTR = document.createElement("tr");
+			for (let k of Object.keys(model)) {
+				const td = document.createElement("td");
+				if (o.hasOwnProperty(k)) td.textContent = o[k];
+				tbodyTR.append(td);
+			}
+			tbody.append(tbodyTR);
+		}
+
+		main.append(table);
+	},
 
 	counter: { default: 0 } as any,
 	count(lable: string = "default") {
@@ -64,6 +106,7 @@ console.info = CONSOLE.log;
 console.warn = CONSOLE.warn;
 console.error = CONSOLE.error;
 console.clear = CONSOLE.clear;
+console.table = CONSOLE.table;
 console.count = CONSOLE.count;
 console.countReset = CONSOLE.countReset;
 console.time = CONSOLE.time;
@@ -131,7 +174,17 @@ function setListener() {
 			setListener();
 		} else if (e.key === "Tab") {
 			e.preventDefault();
-			// el.innerHTML += "\t";
+
+			let sel = document.getSelection();
+			let range = sel!.getRangeAt(0);
+
+			let tabNode = document.createTextNode("\xa0\xa0\xa0\xa0");
+			range.insertNode(tabNode);
+
+			range.setStartAfter(tabNode);
+			range.setEndAfter(tabNode);
+			sel!.removeAllRanges();
+			sel!.addRange(range);
 		}
 	});
 }

@@ -9,7 +9,9 @@
 
 ### Start
 
-Press `F1` and then simply type `js interactive` to find the command as shown below.
+1. Download the extension from [vscode marketplace](https://marketplace.visualstudio.com/items?itemName=MohammadMD.js-interactive) or from releases in this repo.
+2. Install it.
+3. Press `F1` and then simply type `js interactive` to find the command as shown below.
 ![image](https://user-images.githubusercontent.com/69088224/115705139-6e34e100-a381-11eb-9bb9-b88d2b5cf488.png)
 
 ### Basic Features

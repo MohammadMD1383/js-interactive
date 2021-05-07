@@ -16,7 +16,6 @@
 3. Press `F1` and then simply type `js interactive` to find the command as shown below.
 
 ![image](https://user-images.githubusercontent.com/69088224/115705139-6e34e100-a381-11eb-9bb9-b88d2b5cf488.png)
-![image](https://user-images.githubusercontent.com/69088224/117061149-17db8100-ad37-11eb-8083-fed1bfa6e243.png)
 
 ### Basic Features
 
@@ -52,6 +51,8 @@
 
 // and many more ...
 ```
+
+![image](https://user-images.githubusercontent.com/69088224/117061149-17db8100-ad37-11eb-8083-fed1bfa6e243.png)
 
 ### Notice
 

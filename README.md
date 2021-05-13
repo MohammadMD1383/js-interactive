@@ -66,3 +66,4 @@
 
 -   [JavaScript: do all evaluations in one vm](https://stackoverflow.com/questions/67173347/javascript-do-all-evaluations-in-one-vm)
 -   [Context-preserving eval](https://stackoverflow.com/questions/67322922/context-preserving-eval)
+-   [Custom Node JS REPL input/output stream](https://stackoverflow.com/questions/67518218/custom-node-js-repl-input-output-stream)

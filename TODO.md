@@ -5,3 +5,5 @@
 - [ ] <del>escape html in output</del>
 - [x] add tab insertion support
 - [ ] make alert function wait until modal close - *no idea yet*
+- [x] typescript support
+- [x] nodejs support

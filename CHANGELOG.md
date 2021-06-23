@@ -1,5 +1,16 @@
 # Change Log
 
+## [1.1.10]
+
+-   added support for typescript JIT-Compile
+-   included typescript 4.3.4
+-   added NodeJs interactive
+-   added Ts-Javascript interactive
+-   added Ts-NodeJs interactive
+-   added support for `let` and `const` variable declaration
+
+---
+
 ## [1.0.4]
 
 -   added support for <kbd>TAB</kbd> key in editor

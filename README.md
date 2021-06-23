@@ -13,13 +13,17 @@
 
 1. Download the extension from [vscode marketplace](https://marketplace.visualstudio.com/items?itemName=MohammadMD.js-interactive).
 2. Install it.
-3. Press `F1` and then simply type `js interactive` to find the command as shown below.
+3. Press `F1` and then simply type `js interactive` to find the commands as shown below.
 
 ![image](https://user-images.githubusercontent.com/69088224/115705139-6e34e100-a381-11eb-9bb9-b88d2b5cf488.png)
 
 ### Basic Features
 
--   type and execute almost any js that you can execute in a browser. _dev tools > console_
+**Type And Execute:**
+
+-   almost any javascript that you can execute in a browser. _dev tools > console_
+-   almost any javascript that you can execute in a NodeJs environment.
+-   almost any **typescript!** that you can execute in either NodeJs or browser environment.
 
 ### Playground Example
 
@@ -49,6 +53,16 @@
 ⫸	function doSomeJob() { /* ... */ }
 ⫷	undefined
 
+// use typescript!
+⫸	var a: string = "Hello World"
+⫷	undefined
+⫸	a
+⫷	Hello World
+
+// use NodeJs!
+⫸	fs.readFile(...)
+⫷	...
+
 // and many more ...
 ```
 
@@ -56,7 +70,7 @@
 
 ### Notice
 
--   defining variables using `let` and `const` is not supported **in global scope**
+-   NodeJs environment is still in preview. you may encounter some undefined behavior. I'm glad to reply to your issues!
 
 ### Known Issues
 

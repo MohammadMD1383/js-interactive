@@ -15,7 +15,7 @@
 2. Install it.
 3. Press `F1` and then simply type `js interactive` to find the commands as shown below.
 
-![image](https://user-images.githubusercontent.com/69088224/115705139-6e34e100-a381-11eb-9bb9-b88d2b5cf488.png)
+![image](https://user-images.githubusercontent.com/69088224/123110898-c061b380-d451-11eb-8e0c-15994c73b8f1.png)
 
 ### Basic Features
 

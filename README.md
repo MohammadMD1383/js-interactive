@@ -23,7 +23,7 @@
 
 -   almost any javascript that you can execute in a browser. _dev tools > console_
 -   almost any javascript that you can execute in a NodeJs environment.
--   almost any **typescript!** that you can execute in either NodeJs or browser environment.
+-   almost any **typescript!** that you can execute in either NodeJs or browser environment.<sup>[\*](#notice)</sup>
 
 ### Playground Example
 
@@ -71,6 +71,7 @@
 ### Notice
 
 -   NodeJs environment is still in preview. you may encounter some undefined behavior. I'm glad to reply to your issues!
+-   Since `v1.1.11` the typescript features depend on [VSCode Typescript Compiler](https://marketplace.visualstudio.com/items?itemName=MohammadMD.vscode-tsc) extension.
 
 ### Known Issues
 

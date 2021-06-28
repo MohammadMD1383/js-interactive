@@ -1,7 +1,6 @@
 import * as vscode from "vscode";
 import * as path from "path";
 import * as fs from "fs";
-import * as ts from "typescript";
 
 export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
@@ -40,24 +39,28 @@ export function activate(context: vscode.ExtensionContext) {
 			);
 		}),
 
-		vscode.commands.registerCommand("js-interactive.startSession-ts-js", () => {
+		vscode.commands.registerCommand("js-interactive.startSession-ts-js", async () => {
+			if (!(await checkTsCompiler())) return;
+
 			const panel = createWebView(context, WebViewItems.ts_js);
 			panel.webview.onDidReceiveMessage(
-				(message) => {
-					const result = ts.transpileModule(message, {
+				async (message) => {
+					const result = await vscode.commands.executeCommand<string>("vscode-tsc.api.transpileModule", message, {
 						compilerOptions: {
-							module: ts.ModuleKind.ES2020,
-							target: ts.ScriptTarget.ES2020,
+							module: 6 /* ModuleKind.ES2020 */,
+							target: 7 /* ScriptTarget.ES2020 */,
 						},
-					}).outputText;
-					panel.webview.postMessage(result);
+					});
+					panel.webview.postMessage(result!);
 				},
 				undefined,
 				context.subscriptions
 			);
 		}),
 
-		vscode.commands.registerCommand("js-interactive.startSession-ts-node", () => {
+		vscode.commands.registerCommand("js-interactive.startSession-ts-node", async () => {
+			if (!(await checkTsCompiler())) return;
+
 			let __EVAL = (s: string) => eval(`void (__EVAL = ${__EVAL.toString()}); ${s}`);
 
 			const VM = Object.freeze({
@@ -74,15 +77,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 			const panel = createWebView(context, WebViewItems.ts_node);
 			panel.webview.onDidReceiveMessage(
-				(message) => {
-					const compiled = ts.transpileModule(message, {
+				async (message) => {
+					const compiled = await vscode.commands.executeCommand<string>("vscode-tsc.api.transpileModule", message, {
 						compilerOptions: {
-							module: ts.ModuleKind.CommonJS,
-							target: ts.ScriptTarget.ES2020,
+							module: 1 /* ModuleKind.CommonJS */,
+							target: 7 /* ScriptTarget.ES2020 */,
 						},
-					}).outputText;
+					});
 
-					const evalResult = VM.exec(compiled);
+					const evalResult = VM.exec(compiled!);
 
 					if (evalResult instanceof Error) {
 						panel.webview.postMessage({ status: "error", result: evalResult.message });
@@ -176,4 +179,12 @@ function createWebView(context: vscode.ExtensionContext, item: IItem): vscode.We
 
 	panel.webview.html = htmlFileContent;
 	return panel;
+}
+
+async function checkTsCompiler(): Promise<boolean> {
+	if (!vscode.extensions.getExtension("MohammadMD.vscode-tsc")) {
+		vscode.window.showErrorMessage("Extension 'VSCode Typescript Compiler (vscode-tsc)' is not installed");
+		return false;
+	}
+	return true;
 }

@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.1.11]
+- removed bundled typescript
+- typescript features depending on [VSCode Typescript Compiler](https://marketplace.visualstudio.com/items?itemName=MohammadMD.vscode-tsc) extension
+
+---
+
 ## [1.1.10]
 
 -   added support for typescript JIT-Compile
